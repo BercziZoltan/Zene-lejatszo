@@ -1,0 +1,5 @@
+C:\Users\bercz\OneDrive\Dokumentumok\GitHub\Zene-lejatszo\Zene_lejatszo\Zene_lejatszo\obj\Debug\Zene_lejatszo.csprojAssemblyReference.cache
+C:\Users\bercz\OneDrive\Dokumentumok\GitHub\Zene-lejatszo\Zene_lejatszo\Zene_lejatszo\obj\Debug\MainWindow.g.cs
+C:\Users\bercz\OneDrive\Dokumentumok\GitHub\Zene-lejatszo\Zene_lejatszo\Zene_lejatszo\obj\Debug\App.g.cs
+C:\Users\bercz\OneDrive\Dokumentumok\GitHub\Zene-lejatszo\Zene_lejatszo\Zene_lejatszo\obj\Debug\Zene_lejatszo_MarkupCompile.cache
+C:\Users\bercz\OneDrive\Dokumentumok\GitHub\Zene-lejatszo\Zene_lejatszo\Zene_lejatszo\obj\Debug\Zene_lejatszo_MarkupCompile.lref

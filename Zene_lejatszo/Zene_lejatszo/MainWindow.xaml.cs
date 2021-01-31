@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,38 @@ namespace Zene_lejatszo
         public MainWindow()
         {
             InitializeComponent();
+        }
+        MediaPlayer mediaPlayer = new MediaPlayer();
+        string filename;
+
+        private void BT_Click_Open(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog fileDialog = new OpenFileDialog
+            {
+                Multiselect = false,
+                DefaultExt = ".mp3"
+            };
+            bool? dialogOk = fileDialog.ShowDialog();
+            if (dialogOk==true)
+            {
+                filename = fileDialog.FileName;
+                TBFilename.Text = fileDialog.SafeFileName;
+                mediaPlayer.Open(new Uri(filename));
+            }
+        }
+        private void BT_Click_Play(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Play();
+        }
+
+        private void BT_Click_Pause(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Pause();
+        }
+
+        private void BT_Click_Stop(object sender, RoutedEventArgs e)
+        {
+            mediaPlayer.Stop();
         }
     }
 }

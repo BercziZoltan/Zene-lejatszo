@@ -5,8 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Zene_lejatszo"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Zene lejátszó" Height="350" Width="550" Background="Aquamarine">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="Black" Offset="0"/>
+                <GradientStop Color="#FF40F9E8" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Center">
+            <TextBlock FontSize="19" Text="A fájl neve: " FontStyle="Normal" />
+            <TextBlock x:Name="TBFilename" FontSize="17" Width="280" Foreground="Black" Background="White" />
+            <Button Content="Megnyitás" Click="BT_Click_Open" Margin="10,0,0,0" />
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
+            <Button FontSize="19" Content="Lejátszás" Width="110" Margin="10" Click="BT_Click_Play" />
+            <Button FontSize="19" Content="Szünet" Width="110" Margin="10" Click="BT_Click_Pause" />
+            <Button FontSize="19" Content="Stop" Width="110" Margin="10" Click="BT_Click_Stop" />
+        </StackPanel>
+		<StackPanel>
+		<Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume"
+       Minimum="0" Maximum="1" Value="0.5" Margin="-48,38,278,403" RenderTransformOrigin="0.717,0.458"/>
+		</StackPanel>
     </Grid>
 </Window>
