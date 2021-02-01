@@ -23,9 +23,19 @@
             <Button FontSize="19" Content="Szünet" Width="110" Margin="10" Click="BT_Click_Pause" />
             <Button FontSize="19" Content="Stop" Width="110" Margin="10" Click="BT_Click_Stop" />
         </StackPanel>
-		<StackPanel>
-		<Slider Name="volumeSlider" VerticalAlignment="Center" ValueChanged="ChangeMediaVolume"
-       Minimum="0" Maximum="1" Value="0.5" Margin="-48,38,278,403" RenderTransformOrigin="0.717,0.458"/>
-		</StackPanel>
+        <StackPanel>
+            <Slider x:Name="volumeSlider" VerticalAlignment="Top" ValueChanged="ChangeMediaVolume"
+       Minimum="0" Maximum="1" Value="0.5" Margin="10,10,0,0" RenderTransformOrigin="0.717,0.458" Height="20">
+                <Slider.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="0"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Slider.RenderTransform>
+            </Slider>
+        </StackPanel>
+        <Slider HorizontalAlignment="Left" x:Name="secondSlider" VerticalAlignment="Top" Margin="48,224,0,0" Height="41" Width="446" ValueChanged="Slider_ValueChanged"/>
     </Grid>
 </Window>

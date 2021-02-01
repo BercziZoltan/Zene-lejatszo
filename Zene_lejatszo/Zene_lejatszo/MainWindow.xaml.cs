@@ -36,13 +36,14 @@ namespace Zene_lejatszo
                 DefaultExt = ".mp3"
             };
             bool? dialogOk = fileDialog.ShowDialog();
-            if (dialogOk==true)
+            if (dialogOk == true)
             {
                 filename = fileDialog.FileName;
                 TBFilename.Text = fileDialog.SafeFileName;
                 mediaPlayer.Open(new Uri(filename));
             }
         }
+
         private void BT_Click_Play(object sender, RoutedEventArgs e)
         {
             mediaPlayer.Play();
@@ -57,5 +58,27 @@ namespace Zene_lejatszo
         {
             mediaPlayer.Stop();
         }
+
+        private void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            mediaPlayer.Volume = (double)volumeSlider.Value;
+        }
+        public double ElapsedSeconds
+        {
+               get
+               {
+                   return mediaPlayer.Position.TotalSeconds;
+               }
+               set
+               {
+                   PropertyChanged(this, new PropertyChangedEventArgs(nameof(ElapsedSeconds)));
+               }
+        }
+
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            ElapsedSeconds = mediaPlayer.Position.TotalSeconds;
+        }
+    
     }
 }
