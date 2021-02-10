@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Zene_lejatszo
 {
@@ -30,17 +31,19 @@ namespace Zene_lejatszo
 
         private void BT_Click_Open(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog fileDialog = new OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog
             {
-                Multiselect = false,
-                DefaultExt = ".mp3"
+                Filter = "Text files (*.txt)|*.txt",
             };
-            bool? dialogOk = fileDialog.ShowDialog();
-            if (dialogOk == true)
+            if (openFileDialog.ShowDialog() == true)
             {
-                filename = fileDialog.FileName;
-                TBFilename.Text = fileDialog.SafeFileName;
-                mediaPlayer.Open(new Uri(filename));
+                foreach (string file in openFileDialog.FileNames)
+                {
+                    if (!SongsListBox.Items.Contains(file))
+                    {
+                        SongsListBox.Items.Add(file);
+                    }
+                }
             }
         }
 
@@ -59,9 +62,29 @@ namespace Zene_lejatszo
             mediaPlayer.Stop();
         }
 
+        private void BT_Click_Repeat(object sender, RoutedEventArgs e)
+        {
+            if (repeatType == 0)
+            {
+                repeatType = 1;
+            }
+            else if (repeatType == 1)
+            {
+                repeatType = 2;
+                Repeat.Content = "Be";
+            }
+            else
+            {
+                repeatType = 0;
+                Repeat.Content = "Ki";
+
+            }
+        }
+
         private void ChangeMediaVolume(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
             mediaPlayer.Volume = (double)volumeSlider.Value;
+            
         }
         public double ElapsedSeconds
         {

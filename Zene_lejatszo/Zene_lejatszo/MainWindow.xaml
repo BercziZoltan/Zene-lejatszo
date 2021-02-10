@@ -19,9 +19,10 @@
             <Button Content="Megnyitás" Click="BT_Click_Open" Margin="10,0,0,0" />
         </StackPanel>
         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Center">
-            <Button FontSize="19" Content="Lejátszás" Width="110" Margin="10" Click="BT_Click_Play" />
-            <Button FontSize="19" Content="Szünet" Width="110" Margin="10" Click="BT_Click_Pause" />
-            <Button FontSize="19" Content="Stop" Width="110" Margin="10" Click="BT_Click_Stop" />
+            <Button FontSize="19" Content="Lejátszás" Width="110" Margin="10" Click="BT_Click_Play"/>
+            <Button FontSize="19" Content="Szünet" Width="110" Margin="10" Click="BT_Click_Pause"/>
+            <Button FontSize="19" Content="Stop" Width="110" Margin="10" Click="BT_Click_Stop"/>
+			<Button FontSize="19" Content="Ismétlés" Width="110" Margin="10" Click="BT_Click_Repeat"/>
         </StackPanel>
         <StackPanel>
             <Slider x:Name="volumeSlider" VerticalAlignment="Top" ValueChanged="ChangeMediaVolume"
